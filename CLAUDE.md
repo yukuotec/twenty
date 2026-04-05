@@ -80,16 +80,22 @@ npx nx run twenty-server:typeorm migration:generate src/database/typeorm/core/mi
 npx nx run twenty-server:command workspace:sync-metadata
 ```
 
-### Database Inspection (Postgres MCP)
+### MCP Servers (`.mcp.json`)
 
-A read-only Postgres MCP server is configured in `.mcp.json`. Use it to:
-- Inspect workspace data, metadata, and object definitions while developing
-- Verify migration results (columns, types, constraints) after running migrations
-- Explore the multi-tenant schema structure (core, metadata, workspace-specific schemas)
-- Debug issues by querying raw data to confirm whether a bug is frontend, backend, or data-level
-- Inspect metadata tables to debug GraphQL schema generation or `workspace:sync-metadata` issues
+Three MCP servers are configured:
 
-This server is read-only — for write operations (reset, migrations, sync), use the CLI commands above.
+**Postgres (read-only)** - Database inspection:
+- Inspect workspace data, metadata, and object definitions
+- Verify migration results (columns, types, constraints)
+- Explore multi-tenant schema structure (core, metadata, workspace-specific schemas)
+- Debug data-level issues vs frontend/backend bugs
+- Read-only — for writes use CLI commands above
+
+**Playwright** - Browser automation for E2E testing and UI verification
+
+**Context7** - Library documentation lookup:
+- Use for code generation, setup steps, or API documentation
+- Resolves library IDs and fetches docs without manual web searches
 
 ### GraphQL
 ```bash
@@ -101,7 +107,7 @@ npx nx run twenty-front:graphql:generate --configuration=metadata
 ## Architecture Overview
 
 ### Tech Stack
-- **Frontend**: React 18, TypeScript, Jotai (state management), Linaria (styling), Vite
+- **Frontend**: React 18, TypeScript, Jotai (state management), Linaria (styling), Vite, Lingui (i18n)
 - **Backend**: NestJS, TypeORM, PostgreSQL, Redis, GraphQL (with GraphQL Yoga)
 - **Monorepo**: Nx workspace managed with Yarn 4
 
@@ -128,30 +134,17 @@ packages/
 - **Props down, events up** — unidirectional data flow
 - **Composition over inheritance**
 - **No abbreviations** in variable names (`user` not `u`, `fieldMetadata` not `fm`)
-
-### Naming Conventions
-- **Variables/functions**: camelCase
-- **Constants**: SCREAMING_SNAKE_CASE
-- **Types/Classes**: PascalCase (suffix component props with `Props`, e.g. `ButtonProps`)
-- **Files/directories**: kebab-case with descriptive suffixes (`.component.tsx`, `.service.ts`, `.entity.ts`, `.dto.ts`, `.module.ts`)
-- **TypeScript generics**: descriptive names (`TData` not `T`)
+- **File suffixes**: `.component.tsx`, `.service.ts`, `.entity.ts`, `.dto.ts`, `.module.ts`
 
 ### File Structure
 - Components under 300 lines, services under 500 lines
 - Components in their own directories with tests and stories
 - Use `index.ts` barrel exports for clean imports
-- Import order: external libraries first, then internal (`@/`), then relative
-
-### Comments
-- Use short-form comments (`//`), not JSDoc blocks
-- Explain WHY (business logic), not WHAT
-- Do not comment obvious code
-- Multi-line comments use multiple `//` lines, not `/** */`
+- Import order: external libraries → internal (`@/`) → relative
 
 ### State Management
-- **Jotai** for global state: atoms for primitive state, selectors for derived state, atom families for dynamic collections
-- Component-specific state with React hooks (`useState`, `useReducer` for complex logic)
-- GraphQL cache managed by Apollo Client
+- **Jotai** for global state: `createAtomState`, `createAtomSelector`, `createAtomFamilyState`
+- **Apollo Client** for GraphQL cache
 - Use functional state updates: `setState(prev => prev + 1)`
 
 ### Backend Architecture
@@ -175,8 +168,6 @@ Use existing helpers from `twenty-shared` instead of manual type guards:
 - `isDefined()`, `isNonEmptyString()`, `isNonEmptyArray()`
 
 ## Development Workflow
-
-IMPORTANT: Use Context7 for code generation, setup or configuration steps, or library/API documentation. Automatically use the Context7 MCP tools to resolve library IDs and get library docs without waiting for explicit requests.
 
 ### Before Making Changes
 1. Always run linting (`lint:diff-with-main`) and type checking after code changes
