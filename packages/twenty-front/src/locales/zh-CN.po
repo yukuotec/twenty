@@ -8871,7 +8871,7 @@ msgstr "我 (用户 ID)"
 #. js-lingui-id: IAcjOi
 #: src/modules/advanced-text-editor/extensions/slash-command/DefaultSlashCommands.ts
 msgid "Medium section heading"
-msgstr ""
+msgstr "中等标题"
 
 #. js-lingui-id: Sma10A
 #: src/modules/ui/navigation/navigation-drawer/components/MultiWorkspaceDropdown/internal/components/WorkspacesForSignIn.tsx
@@ -10522,7 +10522,7 @@ msgstr ""
 #. js-lingui-id: Uci+Ph
 #: src/modules/advanced-text-editor/extensions/slash-command/DefaultSlashCommands.ts
 msgid "Ordered List"
-msgstr ""
+msgstr "有序列表"
 
 #. js-lingui-id: ucgZ0o
 #: src/modules/settings/roles/role-permissions/object-level-permissions/record-level-permissions/components/SettingsRolePermissionsObjectLevelRecordLevelSection.tsx
@@ -12031,7 +12031,7 @@ msgstr "红宝石色"
 #. js-lingui-id: 3JjdaA
 #: src/pages/settings/ai/components/SettingsAgentEvalsTab.tsx
 msgid "Run"
-msgstr ""
+msgstr "运行"
 
 #. js-lingui-id: UX0N2y
 #: src/modules/object-record/record-table/empty-state/utils/getEmptyStateSubTitle.ts
@@ -13282,7 +13282,7 @@ msgstr "开始新的企业订阅。"
 #. js-lingui-id: WAjFYI
 #: src/modules/settings/admin-panel/health-status/maintenance-mode/components/SettingsAdminMaintenanceMode.tsx
 msgid "Start date"
-msgstr ""
+msgstr "开始日期"
 
 #. js-lingui-id: D3iCkb
 #: src/pages/settings/security/event-logs/components/EventLogFilters.tsx
@@ -14334,7 +14334,7 @@ msgstr "工具"
 #. js-lingui-id: 72c5Qo
 #: src/modules/page-layout/widgets/graph/graph-widget-pie-chart/hooks/usePieChartCenterMetricData.ts
 msgid "Total"
-msgstr ""
+msgstr "总计"
 
 #. js-lingui-id: Fm0Lw/
 #: src/modules/settings/billing/components/SettingsBillingCreditsSection.tsx
@@ -14641,7 +14641,7 @@ msgstr ""
 #: src/pages/settings/applications/tabs/SettingsApplicationDetailAboutTab.tsx
 #: src/pages/settings/applications/tabs/SettingsApplicationDetailAboutTab.tsx
 msgid "Uninstall"
-msgstr ""
+msgstr "卸载"
 
 #. js-lingui-id: Qtg9Qc
 #: src/pages/settings/applications/tabs/SettingsApplicationRegistrationGeneralTab.tsx
@@ -15219,7 +15219,7 @@ msgstr "应用程序版本"
 #: src/modules/side-panel/pages/page-layout/constants/GraphTypeInformation.ts
 #: src/modules/page-layout/utils/getWidgetTitle.ts
 msgid "Vertical Bar Chart"
-msgstr ""
+msgstr "垂直条形图"
 
 #. js-lingui-id: vSJd18
 #: src/pages/settings/admin-panel/SettingsAdminNewAiModel.tsx
@@ -15891,7 +15891,7 @@ msgstr "年度计划"
 #. js-lingui-id: zkWmBh
 #: src/modules/settings/enterprise/components/EnterprisePlanModal.tsx
 msgid "Yearly"
-msgstr ""
+msgstr "每年"
 
 #. js-lingui-id: +BGee5
 #: src/modules/side-panel/pages/page-layout/utils/getDateGranularityPluralLabel.ts
